@@ -51,3 +51,18 @@ def get_note_path(date_expr, base_date=date.today(),
     d = get_date(date_expr, base_date)
     filename = d.strftime('%Y%m%d.md')
     return os.path.join(notes_dir, filename)
+
+
+def get_date_heading(date_expr, base_date=date.today()):
+    d = get_date(date_expr, base_date)
+    return d.strftime("# %A, %B %-d, %Y")
+
+
+def initialize_note(date_expr, base_date=date.today()):
+    note_path = get_note_path(date_expr, base_date)
+    # TODO: initialize note from template
+    if not os.path.isfile(note_path):
+        with open(note_path, 'w') as f:
+            f.write("{0}\n".format(get_date_heading(date_expr, base_date)))
+
+    return note_path

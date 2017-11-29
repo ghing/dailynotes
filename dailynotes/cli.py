@@ -2,12 +2,7 @@ import argparse
 import os
 import os.path
 
-from dailynotes.util import get_date, get_note_path
-
-
-def get_date_heading(date_expr):
-    d = get_date(date_expr)
-    return d.strftime("# %A, %B %-d, %Y")
+from dailynotes.util import initialize_note
 
 
 def main():
@@ -20,12 +15,7 @@ def main():
     parser.add_argument('date_expr', nargs='?', default='',
                         help=date_expr_help)
     args = parser.parse_args()
-
-    note_path = get_note_path(args.date_expr)
-    # TODO: initialize note from template
-    if not os.path.isfile(note_path):
-        with open(note_path, 'w') as f:
-            f.write("{0}\n".format(get_date_heading(args.date_expr)))
+    note_path = initialize_note(args.date_expr)
 
     cmd = "{0} {1}".format(os.environ.get('EDITOR'), note_path)
     os.system(cmd)
