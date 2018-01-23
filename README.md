@@ -37,3 +37,14 @@ dailynotes tomorrow
 ```
 dailynotes friday
 ```
+
+Configuration
+-------------
+
+Configuration is through environment variables.
+
+### `DAILYNOTES_DIR`
+
+The directory where daily note files will be stored.
+
+Default: `~/Documents/notes/daily`
