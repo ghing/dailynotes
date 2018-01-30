@@ -48,3 +48,22 @@ Configuration is through environment variables.
 The directory where daily note files will be stored.
 
 Default: `~/Documents/notes/daily`
+
+Vim Plugin
+----------
+
+There is also a vim plugin that you can install if that's your text editor of choice.
+
+### Installation
+
+Make sure you've installed the CLI first, per the instructions above.
+
+I use [Vundle](https://github.com/VundleVim/Vundle.vim) to manage my plugins, so I just had the add the following line to my `.vimrc`:
+
+    Plugin 'ghing/dailynotes', {'rtp': 'dailynotes.vim/'}
+
+and then I ran the `PluginInstall` command in vim.
+
+### Usage
+
+The vim plugin provides a `DailyNotes` command that accepts the same arguments as the CLI.
