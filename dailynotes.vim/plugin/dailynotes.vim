@@ -3,12 +3,13 @@ if !has('python') && !has('python3')
 endif
 
 let s:plugin_path = escape(expand('<sfile>:p:h'), '\')
+let s:python_cmd = (has('python3') ? 'py3file' : 'pyfile')
 
-exe (has('python3') ? 'py3file' : 'pyfile') . escape(s:plugin_path, ' ') . '/dailynotes.py'
+exe s:python_cmd . escape(s:plugin_path, ' ') . '/dailynotes.py'
 
 function! s:DailyNotesOpen(...)
         let g:dailynotes_date_expr = a:1
-        python open_note()
+        exe s:python_cmd . ' open_note()'
 endfunction
 
 command! -nargs=? DailyNotes call s:DailyNotesOpen(<q-args>)
