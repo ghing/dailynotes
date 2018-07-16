@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 import os
 import os.path
 
@@ -42,6 +42,22 @@ def get_days_delta(date_expr, base_date):
 
 
 def get_date(date_expr, base_date=None):
+    # First, try to parse the date expression as an explict date specified in
+    # either `YYYY-MM-DD` or `YYYYMMDD` formats.
+    try:
+        dt = datetime.strptime(date_expr, '%Y-%m-%d')
+        return dt.date()
+
+    except ValueError:
+        pass
+
+    try:
+        dt = datetime.strptime(date_expr, '%Y%m%d')
+        return dt.date()
+
+    except ValueError:
+        pass
+
     if base_date is None:
         base_date = date.today()
 

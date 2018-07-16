@@ -60,3 +60,12 @@ def test_get_date_friday():
 def test_get_date_saturday():
     d = dailynotes.util.get_date('saturday', base_date)
     assert d == date(2017, 11, 18)
+
+
+def test_get_date_specific_nodashes():
+    d = dailynotes.util.get_date('20180710')
+    assert d == date(2018, 7, 10)
+
+def test_get_date_specific_dashes():
+    d = dailynotes.util.get_date('2018-07-10')
+    assert d == date(2018, 7, 10)
