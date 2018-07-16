@@ -11,6 +11,11 @@ You can install this package with `pip`:
     pip install git+https://github.com/ghing/dailynotes
 
 
+If you want this package for the `dailynotes` command-line utility, you might want to use [pipsi](https://github.com/mitsuhiko/pipsi):
+
+    pipsi install git+https://github.com/ghing/dailynotes
+
+
 Usage
 -----
 
@@ -36,6 +41,18 @@ dailynotes tomorrow
 
 ```
 dailynotes friday
+```
+
+### Open a notes file for a specific date
+
+```
+dailynotes 20180716
+```
+
+or
+
+```
+dailynotes 2018-07-16
 ```
 
 Configuration
@@ -67,3 +84,13 @@ and then I ran the `PluginInstall` command in vim.
 ### Usage
 
 The vim plugin provides a `DailyNotes` command that accepts the same arguments as the CLI.
+
+### Troubleshooting
+
+The vim plugin will use the version of Python with which vim was compiled rather than one in a virtualenv if you install the dailynotes CLI using something like pipsi.  You can see the Python version used by vim by running `vim --version`.
+
+If you run into errors because the plugin can't find a dependency of the dailynotes package, such as Jinja2, you might hae to install that explicitely using the systemwide pip:
+
+```
+pip install Jinja2
+```
