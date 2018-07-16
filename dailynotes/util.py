@@ -41,24 +41,37 @@ def get_days_delta(date_expr, base_date):
     return 0
 
 
-def get_date(date_expr, base_date=date.today()):
+def get_date(date_expr, base_date=None):
+    if base_date is None:
+        base_date = date.today()
+
     days_delta = get_days_delta(date_expr, base_date)
     return base_date + timedelta(days=days_delta)
 
 
-def get_note_path(date_expr, base_date=date.today(),
+def get_note_path(date_expr, base_date=None,
                   notes_dir=DAILYNOTES_DIR):
+    if base_date is None:
+        base_date = date.today()
+
     d = get_date(date_expr, base_date)
     filename = d.strftime('%Y%m%d.md')
     return os.path.join(notes_dir, filename)
 
 
-def get_date_heading(date_expr, base_date=date.today()):
+def get_date_heading(date_expr, base_date=None):
+    if base_date is None:
+        base_date = date.today()
+
+
     d = get_date(date_expr, base_date)
     return d.strftime("# %A, %B %-d, %Y")
 
 
-def initialize_note(date_expr, base_date=date.today()):
+def initialize_note(date_expr, base_date=None):
+    if base_date is None:
+        base_date = date.today()
+
     note_path = get_note_path(date_expr, base_date)
     # TODO: initialize note from template
     if not os.path.isfile(note_path):
