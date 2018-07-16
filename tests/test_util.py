@@ -69,3 +69,9 @@ def test_get_date_specific_nodashes():
 def test_get_date_specific_dashes():
     d = dailynotes.util.get_date('2018-07-10')
     assert d == date(2018, 7, 10)
+
+
+def test_get_initial_note_text():
+    s = dailynotes.util.get_initial_note_text('today', base_date)
+    lines = s.split('\n')
+    assert lines[0].strip() == "# Wednesday, November 22, 2017"

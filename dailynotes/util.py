@@ -2,6 +2,8 @@ from datetime import date, datetime, timedelta
 import os
 import os.path
 
+from jinja2 import Environment, PackageLoader
+
 
 DEFAULT_DAILYNOTES_DIR = os.path.join(
     os.path.expanduser('~'),
@@ -75,23 +77,28 @@ def get_note_path(date_expr, base_date=None,
     return os.path.join(notes_dir, filename)
 
 
-def get_date_heading(date_expr, base_date=None):
-    if base_date is None:
-        base_date = date.today()
+def get_initial_note_text(date_expr, base_date=None):
+    env = Environment(
+       loader=PackageLoader('dailynotes', 'templates')
+    )
 
+    ctx = {
+        'note_date': get_date(date_expr, base_date),
+    }
+    # TODO: Allow user to specify a note outside of the package directory
+    # via an environment variable.
+    template = env.get_template('note.md')
 
-    d = get_date(date_expr, base_date)
-    return d.strftime("# %A, %B %-d, %Y")
+    return template.render(**ctx)
 
 
 def initialize_note(date_expr, base_date=None):
-    if base_date is None:
-        base_date = date.today()
-
     note_path = get_note_path(date_expr, base_date)
-    # TODO: initialize note from template
+
     if not os.path.isfile(note_path):
+        note_text = get_initial_note_text(date_expr, base_date)
+
         with open(note_path, 'w') as f:
-            f.write("{0}\n".format(get_date_heading(date_expr, base_date)))
+            f.write(note_text)
 
     return note_path
