@@ -75,6 +75,12 @@ There is also a vim plugin that you can install if that's your text editor of ch
 
 Make sure you've installed the CLI first, per the instructions above.
 
+Make sure that the dependencies are installed in the version of Python used by vim.
+
+You can get a sense of vim's Python by running `vim --version`.
+
+Then run the appropriate version of `pip install dailynotes` for that version of Python.
+
 I use [Vundle](https://github.com/VundleVim/Vundle.vim) to manage my plugins, so I just had the add the following line to my `.vimrc`:
 
     Plugin 'ghing/dailynotes', {'rtp': 'dailynotes.vim/'}
