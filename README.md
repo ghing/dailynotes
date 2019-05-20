@@ -11,10 +11,13 @@ You can install this package with `pip`:
     pip install git+https://github.com/ghing/dailynotes
 
 
-If you want this package for the `dailynotes` command-line utility, you might want to use [pipsi](https://github.com/mitsuhiko/pipsi):
+If you want this package for the `dailynotes` command-line utility, you might want to use [pipx](https://pipxproject.github.io/).
+
+    pipx install --spec git+https://github.com/ghing/dailynotes.git dailynotes
+
+Or, [pipsi](https://github.com/mitsuhiko/pipsi):
 
     pipsi install git+https://github.com/ghing/dailynotes
-
 
 Usage
 -----
