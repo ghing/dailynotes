@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='dailynotes',
-      version='0.3',
+      version='0.4',
       description='Tools for managing daily notes as text files',
       url='http://github.com/ghing/dailynotes',
       author='Geoff Hing',
