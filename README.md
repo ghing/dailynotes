@@ -13,7 +13,7 @@ You can install this package with `pip`:
 
 If you want this package for the `dailynotes` command-line utility, you might want to use [pipx](https://pipxproject.github.io/).
 
-    pipx install --spec git+https://github.com/ghing/dailynotes.git dailynotes
+    pipx install git+https://github.com/ghing/dailynotes
 
 Or, [pipsi](https://github.com/mitsuhiko/pipsi):
 
