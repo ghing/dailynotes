@@ -3,6 +3,8 @@ Daily Notes
 
 An opinionated tool for managing daily notes as Markdown files.
 
+This was inspired by a former colleague at the Chicago Tribune who kept a daily log of things he learned as a developer. It's also inspired by some of the conventions in [bullet journaling](https://bulletjournal.com/), a method I struggle to use in my personal life, but makes sense for work-related notes.
+
 Installation
 ------------
 
@@ -69,8 +71,19 @@ The directory where daily note files will be stored.
 
 Default: `~/Documents/notes/daily`
 
-Vim Plugin
-----------
+## Visual Studio code Snippets
+
+If you use Visual Studio Code, there is a snippets JSON file to create items commonly used in these notes. You can find this file in `snippets/markdown.json`.
+
+See the [Code documentation on snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_create-your-own-snippets) for where to paste these snippets.
+
+Here are the prefixes that trigger snippets and what they provide.
+
+- `dn`: Skeleton for a daily notes file
+- `todo`: To do item using GitHub Markdown syntax (`* [ ] item`)
+- `evt`: An event, such as a meeting
+
+## Vim Plugin
 
 There is also a vim plugin that you can install if that's your text editor of choice.
 
