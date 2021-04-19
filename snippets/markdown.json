@@ -2,7 +2,7 @@
 	"Daily note" : {
 	  "prefix": "dn",
 	  "body": [
-		  "# ${1:$CURRENT_MONTH_NAME $CURRENT_DATE, $CURRENT_YEAR}",
+		  "# ${1:$CURRENT_DAY_NAME, $CURRENT_MONTH_NAME $CURRENT_DATE, $CURRENT_YEAR}",
 		  "",
 		  "## Today",
 		  "",
@@ -11,8 +11,7 @@
 		  "",
 		  "| in       | out      | subtotal | total |",
 		  "| -------- | -------- | -------- | ----- |",
-		  "| 09:00 AM | 01:30 PM | 04:00    | 04:00 |",
-		  "| 02:00 PM | 06:00 PM | 04:00    | 08:00 |"
+		  "| 09:00 AM | 01:30 PM | 04:00    | 04:00 |"
 	  ],
 	  "description": "Body of a daily work note"	
 	},
